@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 public class PaymentTransactionMapper {
 
     public PaymentTransactionDTO toDto(PaymentTransaction entity) {
-        PaymentTransactionDTO dto = new PaymentTransactionDTO();
+        var dto = new PaymentTransactionDTO();
         dto.setAmount(entity.getAmount());
         dto.setCurrency(entity.getCurrency());
         dto.setDestination(entity.getDestination());
@@ -22,7 +22,7 @@ public class PaymentTransactionMapper {
     }
 
     public PaymentTransaction toEntity(PaymentTransactionDTO dto) {
-        PaymentTransaction entity = new PaymentTransaction();
+        var entity = new PaymentTransaction();
         entity.setAmount(dto.getAmount());
         entity.setCurrency(dto.getCurrency());
         entity.setDestination(dto.getDestination());

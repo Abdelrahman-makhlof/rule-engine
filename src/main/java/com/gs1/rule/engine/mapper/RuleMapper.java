@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 public class RuleMapper {
 
     public RuleDTO toDto(BusinessRule entity) {
-        RuleDTO dto = new RuleDTO();
+        var dto = new RuleDTO();
         dto.setId(entity.getId());
         dto.setName(entity.getName());
         dto.setRuleType(entity.getRuleType());
@@ -22,7 +22,7 @@ public class RuleMapper {
     }
 
     public BusinessRule toEntity(RuleDTO dto) {
-        BusinessRule entity = new BusinessRule();
+        var entity = new BusinessRule();
         entity.setName(dto.getName());
         entity.setRuleType(dto.getRuleType());
         entity.setCondition(dto.getCondition());

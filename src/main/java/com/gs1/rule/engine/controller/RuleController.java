@@ -1,7 +1,7 @@
 package com.gs1.rule.engine.controller;
 
 import com.gs1.rule.engine.db.entity.BusinessRule;
-import com.gs1.rule.engine.exception.BusinessException;
+import com.gs1.rule.engine.exception.RuleNotFoundException;
 import com.gs1.rule.engine.mapper.RuleMapper;
 import com.gs1.rule.engine.model.RuleDTO;
 import com.gs1.rule.engine.service.RuleService;
@@ -29,7 +29,7 @@ public class RuleController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<RuleDTO> getRuleById(@PathVariable Long id) throws BusinessException {
+    public ResponseEntity<RuleDTO> getRuleById(@PathVariable Long id) throws RuleNotFoundException {
         return ResponseEntity.ok(mapper.toDto(ruleService.getRuleById(id)));
     }
 
@@ -40,12 +40,12 @@ public class RuleController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<BusinessRule> updateRule(@PathVariable Long id, @RequestBody RuleDTO ruleDetails) throws BusinessException {
+    public ResponseEntity<BusinessRule> updateRule(@PathVariable Long id, @RequestBody RuleDTO ruleDetails) throws RuleNotFoundException {
         return ResponseEntity.ok(ruleService.updateRule(id, mapper.toEntity(ruleDetails)));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteRule(@PathVariable Long id) throws BusinessException {
+    public ResponseEntity<?> deleteRule(@PathVariable Long id) throws RuleNotFoundException {
         return ResponseEntity.ok(ruleService.deleteRule(id));
     }
 }

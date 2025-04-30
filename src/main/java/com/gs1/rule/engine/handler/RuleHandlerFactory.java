@@ -11,6 +11,7 @@ import java.util.Set;
 
 @Component
 public class RuleHandlerFactory {
+
     private final Map<RuleType, RuleHandler> handlerMap = new HashMap<>();
 
     @Autowired
