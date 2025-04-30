@@ -1,0 +1,153 @@
+{
+	"info": {
+		"_postman_id": "ea557394-53f0-4917-b267-5301ac98e500",
+		"name": "rules engine",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37205559"
+	},
+	"item": [
+		{
+			"name": "add rule",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Route to channel A\",\r\n  \"ruleType\": \"ROUTING\",\r\n  \"condition\": \"input.amount >= 2000\",\r\n  \"action\": \"direction = 'B'\",\r\n  \"priority\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/rules",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"rules"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update rule",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/rules/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"rules",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get rules",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/rules/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"rules",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete rule",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/rules/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"rules",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "execute rules",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"direction\": \"inbound\",\r\n  \"channel\": null,\r\n  \"amount\": 6000.0,\r\n  \"currency\" : \"EGP\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/engine/execute",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"engine",
+						"execute"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
