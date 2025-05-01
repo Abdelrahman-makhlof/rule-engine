@@ -1,16 +1,12 @@
 package com.gs1.rule.engine.model;
 
-import lombok.Data;
-
-
 public class PaymentTransactionDTO {
 
     private String direction;
     private Double amount;
     private String currency;
     private String status;
-    private String source;
-    private String destination;
+    private String type;
 
     public String getDirection() {
         return direction;
@@ -44,19 +40,12 @@ public class PaymentTransactionDTO {
         this.status = status;
     }
 
-    public String getSource() {
-        return source;
+    public String getType() {
+        return type;
     }
 
-    public void setSource(String source) {
-        this.source = source;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public String getDestination() {
-        return destination;
-    }
-
-    public void setDestination(String destination) {
-        this.destination = destination;
-    }
 }

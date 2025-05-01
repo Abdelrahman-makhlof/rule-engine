@@ -14,9 +14,8 @@ public class PaymentTransactionMapper {
         var dto = new PaymentTransactionDTO();
         dto.setAmount(entity.getAmount());
         dto.setCurrency(entity.getCurrency());
-        dto.setDestination(entity.getDestination());
         dto.setDirection(entity.getDirection());
-        dto.setSource(entity.getSource());
+        dto.setType(entity.getType());
         dto.setStatus(entity.getStatus());
         return dto;
     }
@@ -25,9 +24,8 @@ public class PaymentTransactionMapper {
         var entity = new PaymentTransaction();
         entity.setAmount(dto.getAmount());
         entity.setCurrency(dto.getCurrency());
-        entity.setDestination(dto.getDestination());
         entity.setDirection(dto.getDirection());
-        entity.setSource(dto.getSource());
+        entity.setType(dto.getType());
         entity.setStatus(dto.getStatus());
         return entity;
     }

@@ -25,7 +25,7 @@ public class RuleHandlerFactory {
         return handlerMap.get(type);
     }
 
-    public Set<RuleType> getSupportedTypes() {
+    public Set<RuleType> getRulesTypes() {
         return handlerMap.keySet();
     }
 }

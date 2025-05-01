@@ -10,7 +10,6 @@ import com.gs1.rule.engine.model.PaymentTransactionDTO;
 import com.gs1.rule.engine.model.RuleExecutionResponse;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +34,7 @@ public class RuleEngineService {
         BeanUtils.copyProperties(paymentTransaction, output);
         List<String> appliedRules = new ArrayList<>();
 
-        for (RuleType type : ruleHandlerFactory.getSupportedTypes()) {
+        for (RuleType type : ruleHandlerFactory.getRulesTypes()) {
             List<BusinessRule> rules = ruleRepository.findAllByRuleTypeOrderByPriorityDesc(type);
             var handler = ruleHandlerFactory.getHandler(type);
             if (handler != null && !rules.isEmpty()) {
@@ -43,6 +42,6 @@ public class RuleEngineService {
             }
         }
 
-        return new RuleExecutionResponse(mapper.toDto(output), appliedRules);
+        return new RuleExecutionResponse(mapper.toDto(output),appliedRules.size(), appliedRules);
     }
 }
